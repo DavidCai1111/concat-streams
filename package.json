@@ -1,0 +1,25 @@
+{
+  "name": "concat-streams",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/standard && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidCai1993/concat-streams.git"
+  },
+  "author": "DavidCai1993",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavidCai1993/concat-streams/issues"
+  },
+  "homepage": "https://github.com/DavidCai1993/concat-streams#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "should": "^8.3.0",
+    "standard": "^6.0.8"
+  }
+}
