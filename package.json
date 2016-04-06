@@ -1,7 +1,7 @@
 {
   "name": "concat-streams",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Concat streams by piping and pass the `error` event through to the end.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/standard && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
