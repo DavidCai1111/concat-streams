@@ -29,6 +29,6 @@ concatStream([stream1, stream2, stream3])
 
 ### concatStream(streams)
 
-  - streams: Array<stream> an array of streams
+  - streams: `Array`<`stream`> an array of streams
 
 Concat all streams in array by `pipe` and once an error occurred in one stream, all streams after will get it. Return the last stream in the array.
