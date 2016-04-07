@@ -13,11 +13,6 @@ function concatStreams (streams) {
     stream.on('error', function (error) {
       nextStream.emit('error', error)
     })
-  }
-
-  for (let i = 0; i < streams.length - 1; i++) {
-    let stream = streams[i]
-    let nextStream = streams[i + 1]
 
     stream.pipe(nextStream)
   }
