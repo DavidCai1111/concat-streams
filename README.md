@@ -17,12 +17,13 @@ npm install concat-streams
 'use strict'
 const concatStream = require('concat-streams')
 
-concatStream([stream1, stream2, stream3])
+concatStream([stream1, stream2, stream3]).on('error', console.error)
 // Equal to:
 // stream1.pipe(stream2)
 // stream2.pipe(stream3)
 // stream1.on('error', (err) => stream2.emit(err))
 // stream2.on('error', (err) => stream3.emit(err))
+// stream3.on('error', console.error)
 ```
 
 ## API
