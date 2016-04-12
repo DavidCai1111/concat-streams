@@ -1,6 +1,6 @@
 {
   "name": "concat-streams",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Concat streams by piping and pass the `error` event through to the end.",
   "main": "index.js",
   "scripts": {

@@ -59,7 +59,7 @@ describe('concat-streams', () => {
   })
 
   it('should pipe all error down', (done) => {
-    concatStreams(streams)
+    concatStreams(streams, 'error')
 
     stream2.on('error', (error) => {
       error.should.eql(new Error('jaja'))
