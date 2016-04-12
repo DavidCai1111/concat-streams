@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/DavidCai1993/concat-streams.svg?branch=master)](https://travis-ci.org/DavidCai1993/concat-streams)
 [![Coverage Status](https://coveralls.io/repos/github/DavidCai1993/concat-streams/badge.svg?branch=master)](https://coveralls.io/github/DavidCai1993/concat-streams?branch=master)
 
-Concat streams by piping and pass the `error` event through to the end.
+Concat streams by piping and pass the specified event through to the end.
 
 ## Installation
 
@@ -17,7 +17,7 @@ npm install concat-streams
 'use strict'
 const concatStream = require('concat-streams')
 
-concatStream([stream1, stream2, stream3]).on('error', console.error)
+concatStream([stream1, stream2, stream3], 'error').on('error', console.error)
 // Equal to:
 // stream1.pipe(stream2)
 // stream2.pipe(stream3)
@@ -28,8 +28,9 @@ concatStream([stream1, stream2, stream3]).on('error', console.error)
 
 ## API
 
-### concatStream(streams)
+### concatStream(streams, event)
 
   - streams: `Array`<`stream`> an array of streams
+  - event: `String` name of the event you want to pipe through, by default it is `'error'`.
 
-Concat all streams in array by `pipe` and once an error occurred in one stream, all streams after will get it. Return the last stream in the array.
+Concat all streams in array by `pipe` and once the `event` occurred in one stream, all streams after will get it. Return the last stream in the array.
