@@ -1,9 +1,10 @@
 'use strict'
 const EventEmitter = require('events')
 
-function concatStreams (streams, event) {
+function concatStreams (streams, events) {
   if (!streams || !Array.isArray(streams)) throw new Error(`Invaild stream array: ${streams}`)
-  event = event ? String(event) : 'error'
+  if (!events) events = ['error']
+  if (!Array.isArray(events)) events = [events]
 
   streams = streams.filter(isStream)
 
@@ -11,9 +12,11 @@ function concatStreams (streams, event) {
     let stream = streams[i]
     let nextStream = streams[i + 1]
 
-    stream.on(event, function () {
-      nextStream.emit.apply(nextStream, [event].concat(Array.prototype.slice.call(arguments)))
-    })
+    for (let event of events) {
+      stream.on(event, function () {
+        nextStream.emit.apply(nextStream, [event].concat(Array.prototype.slice.call(arguments)))
+      })
+    }
 
     stream.pipe(nextStream)
   }
